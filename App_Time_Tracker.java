@@ -4,11 +4,13 @@ import javax.swing.*;
 
 public class App_Time_Tracker extends JFrame implements ActionListener
 {
-    JButton setting_btn;
     JButton add_btn;
+    JButton color_chooser_btn;
+    JButton font_chooser_btn;
 
     public App_Time_Tracker()
     {
+        // WINDOW
         this.setTitle("App Time Tracker");
         this.setSize(900, 900);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -17,22 +19,30 @@ public class App_Time_Tracker extends JFrame implements ActionListener
         this.setLayout(null);
         this.setResizable(false);
 
-        // Buttons
-        ImageIcon setting_btn_Icon = new ImageIcon("icons/setting_btn_icon.png");
-        setting_btn = new JButton(setting_btn_Icon);
-        setting_btn.setBounds(10, 10, 50, 50);
-        setting_btn.addActionListener(this);
-        this.add(setting_btn);
-
+        // BUTTONS
         ImageIcon add_btn_Icon = new ImageIcon("icons/add_btn_icon.png");
         add_btn = new JButton(add_btn_Icon);
-        add_btn.setBounds(70, 10, 50, 50);
+        add_btn.setBounds(10, 10, 50, 50);
         add_btn.addActionListener(this);
         this.add(add_btn);
 
+        ImageIcon color_chooser_btn_Icon = new ImageIcon("icons/color_chooser_btn_icon.png");
+        color_chooser_btn = new JButton(color_chooser_btn_Icon);
+        color_chooser_btn.setBounds(70, 10, 50, 50);
+        color_chooser_btn.addActionListener(this);
+        this.add(color_chooser_btn);
+
+        ImageIcon font_chooser_btn_Icon = new ImageIcon("icons/font_chooser_btn_icon.png");
+        font_chooser_btn = new JButton(font_chooser_btn_Icon);
+        font_chooser_btn.setBounds(130, 10, 50, 50);
+        font_chooser_btn.addActionListener(this);
+        this.add(font_chooser_btn); 
+
+        // MAKING IT VISIBLE
         this.setVisible(true);
     }
 
+    // ACTION PERFORMED BY USER
     @Override
     public void actionPerformed(ActionEvent e) 
     {
@@ -42,21 +52,15 @@ public class App_Time_Tracker extends JFrame implements ActionListener
             chooseApp.showOpenDialog(null);
         }
 
-        if(e.getSource() == setting_btn)
+        if(e.getSource() == color_chooser_btn)
         {
-            SettingsDialog();
+            JColorChooser cindowColorChooser = new JColorChooser();
+            Color color = JColorChooser.showDialog(null, "Choose Color for window", new Color(34, 32, 52));
+            this.setBackground(color);
         }
     }
 
-    private void SettingsDialog()
-    {
-        JDialog settingMenu = new JDialog(this, "Settings", true);
-        settingMenu.setTitle("Settings");
-        settingMenu.setBounds(600, 100, 400, 400);
-        settingMenu.setResizable(false);
-        settingMenu.setVisible(true);
-    }
-
+    // PUBLICSTATICVOIDOWEFUHWEBUWE
     public static void main(String[] args)
     {
         System.out.println("Hello World");
