@@ -54,17 +54,19 @@ public class App_Time_Tracker extends JFrame implements ActionListener
 
         if(e.getSource() == color_chooser_btn)
         {
-            JColorChooser cindowColorChooser = new JColorChooser();
-            Color color = JColorChooser.showDialog(null, "Choose Color for window", new Color(34, 32, 52));
-            this.setBackground(color);
+            JColorChooser windowColorChooser = new JColorChooser();
+            Color color = JColorChooser.showDialog(null, "Choose Color for the Window", getContentPane().getBackground());
+            this.getContentPane().setBackground(color);
         }
     }
 
     // PUBLICSTATICVOIDOWEFUHWEBUWE
     public static void main(String[] args)
     {
-        System.out.println("Hello World");
-        System.out.println("This is a computer program made by ShizamDa_Geek");
+        System.out.println("*---------------------------------------------------*");
+        System.out.println("|                    Hello World!                   |");
+        System.out.println("|This is a computer program is made by ShizamDa_Geek|");
+        System.out.println(".---------------------------------------------------.");
         new App_Time_Tracker();
     }
 }
